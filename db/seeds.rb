@@ -15,6 +15,8 @@ categories = Category.create([
   { name: 'Demolition' }
 ])
 
+Category.create(name: 'Default Category', default: true)
+
 companies = Company.create([
   { name: 'The Basement Renovators', description: 'We renovate basements!' },
   { name: 'The Bathroom Renovators', description: 'We renovate bathrooms!' },
@@ -25,3 +27,7 @@ companies = Company.create([
 
 
 companies.each_with_index { |c, i| c.categories << categories[i] }
+
+companies.each do |c|
+  rand(5).times { |i| c.invoices.create title: "Invoice ##{i}" }
+end
