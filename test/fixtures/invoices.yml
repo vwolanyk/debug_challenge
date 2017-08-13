@@ -2,8 +2,8 @@
 
 one:
   company: one
-  title: MyString
+  title: Invoice One
 
 two:
   company: two
-  title: MyString
+  title: Invoice Two

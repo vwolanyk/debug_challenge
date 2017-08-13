@@ -6,9 +6,8 @@ Rails.application.routes.draw do
     resources :companies, only: [:index]
   end
   namespace :api do
-    namespace :search do
-      resources :categories, only: [:index]
-    end
+    resources :companies
+    resources :categories
   end
   root to: 'companies#index'
 end

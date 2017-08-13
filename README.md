@@ -7,11 +7,12 @@
 
 ```
 bundle install
-rake db:setua
-rails s
+rake db:setup
 ```
 
-## Resolve the following bugs
+Most of the bugs below can be found by running `rake test`.
+
+## Resolve the following Issues
 
 ### 1. ActionView::MissingTemplate in Companies#show
 
@@ -46,4 +47,53 @@ SQLite3::SQLException: near "%": syntax error: SELECT "companies".* FROM "compan
 
 **NOTE**: This endpoint also contains a security weakenss. Please find the code that presents the security concern and remedy it.
 
-### 4.
+### 4. Create an API endpiont for Categories#show
+
+url: http://localhose:3000/api/categories
+
+The tests in `test/controllers/api/categoryies_controller_test.rb` should pass. Please look at the Companies API endpoint for reference on how to implement this. You can find documentaiton about Active Model Serializers on the gem's home page.
+
+expected response:
+
+```json
+{
+  "id": 1,
+  "name": 'Category Name',
+  "companies": [
+    {
+      "id": 1,
+      "name": "Company Name",
+      "description": "Some company!"
+    }
+  ]
+}
+```
+
+### 5. Create an API endpoint to search for Companies
+
+This is a new feature that you will need to implement. Create an API endpoint at `api/search/companies` that accepts a query parameter and returns an array of companies that match the query.
+
+- The endpoint must respond with JSON.
+- Write tests to validate that the endpint behaves as expected.
+
+### 6. Add Invoices to the Company API endpoint
+
+In this new feature, we will be adding Invoices to the Api::Companies#show endpint.
+
+- Modify this endpoint so that the response includes a node called `invoices` that contains an array of invoce objects.
+- Modify the tests in `test/controllers/api/companies_controller_test.rb` so that they pass now that we've added the invoices node.
+- Ensure that no other API endpoints include the `invoices` node in their responses.
+
+Sample JSON
+
+```json
+{
+  "id": 1,
+  "name": "Company Name",
+  "description": "Some company!",
+  "invoices": {
+    "id": 1,
+    "title": "Invoice Title"
+  }
+}
+```
