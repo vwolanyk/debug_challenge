@@ -58,7 +58,7 @@ expected response:
 ```json
 {
   "id": 1,
-  "name": 'Category Name',
+  "name": "Category Name",
   "companies": [
     {
       "id": 1,
