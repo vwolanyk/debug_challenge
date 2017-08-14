@@ -5,6 +5,7 @@ class Company < ApplicationRecord
 
   def self.search(search = nil)
     if search
+      # SECURITY WEAKNESS was the like statement not being separated out
       self.where("name LIKE ?", "%#{search}%")
     else
       self.all
