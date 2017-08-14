@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   namespace :api do
     resources :companies
     resources :categories
+    get '/search/companies/:q' => 'companies#search'
+
   end
   root to: 'companies#index'
 end
