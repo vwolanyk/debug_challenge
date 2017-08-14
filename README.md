@@ -80,7 +80,7 @@ This is a new feature that you will need to implement. Create an API endpoint at
 
 In this new feature, we will be adding Invoices to the Api::Companies#show endpint.
 
-- Modify this endpoint so that the response includes a node called `invoices` that contains an array of invoce objects.
+- Modify this endpoint so that the response includes a node called `invoices` that contains an array of invoice objects.
 - Modify the tests in `test/controllers/api/companies_controller_test.rb` so that they pass now that we've added the invoices node.
 - Ensure that no other API endpoints include the `invoices` node in their responses.
 
