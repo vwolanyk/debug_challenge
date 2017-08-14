@@ -1,7 +1,7 @@
 class Api::CompaniesController < ApplicationController
   def index
     @companies = Company.all
-    render json: @companies, each_serializer: CompanySerializer
+    render json: @companies, each_serializer: CompanySerializer, except: :invoices
   end
 
   def search
