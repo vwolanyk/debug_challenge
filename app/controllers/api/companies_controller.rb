@@ -1,6 +1,6 @@
 class Api::CompaniesController < ApplicationController
   def index
-    @companies = Company.all
+    @company = Company.fin
     render json: @companies, each_serializer: CompanySerializer
   end
 end

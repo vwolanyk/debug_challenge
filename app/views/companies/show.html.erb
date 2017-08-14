@@ -12,7 +12,12 @@
 
 <p>
   <strong>Categories:</strong>
-  <%= render @company.categories %>
+  <ul>
+    <%@company.categories.each do |category| %>
+    <li><%=category.name %></li>
+    <% end %>
+  </ul>
+
 </p>
 
 <%= link_to 'Edit', edit_company_path(@company) %> |

@@ -1,5 +1,5 @@
 class Api::CategoriesController < ApplicationController
   def show
-    # Your code here
-  end
+  @company = Company.find(params[:id])
+  render json: @company.categories, each_serializer: CompanySerializer
 end
