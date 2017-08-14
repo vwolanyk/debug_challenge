@@ -1,4 +1,6 @@
 class Api::CategoriesController < ApplicationController
-  def show
-  
+  def index
+    @categories = Category.all
+    render json: @categories, each_serializer: CategorySerializer
+  end
 end
