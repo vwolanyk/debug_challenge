@@ -44,7 +44,7 @@ class CategoriesController < ApplicationController
     respond_to do |format|
       if @category.update(category_params)
         format.html {
-          render :show
+    
           redirect_to @category, notice: 'Category was successfully updated.'
         }
         format.json { render :show, status: :ok, location: @category }
